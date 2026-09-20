@@ -1,0 +1,32 @@
+/* 
+[USED_GOODS_BOARD] 중고거래 게시판 정보 테이블
+
+BOARD_ID 게시글 ID
+WRITER_ID 작성자 ID
+TITLE 게시글 제목
+CONTENTS 게시글 내용
+PRICE 가격
+CREATED_DATE 작성일
+STATUS 거래상태
+VIEWS 조회수
+ */
+
+
+/* 
+[USED_GOODS_REPLY] 중고거래 게시판 첨부파일 정보 테이블
+
+REPLY_ID 댓글 ID
+BOARD_ID 게시글 ID
+WRITER_ID 작성자 ID
+CONTENTS 댓글 내용
+CREATED_DATE 작성일
+ */
+
+select b.TITLE, b.BOARD_ID, r.REPLY_ID, r.WRITER_ID, r.CONTENTS, r.CREATED_DATE
+from USED_GOODS_BOARD as b
+join USED_GOODS_REPLY as r
+on b.BOARD_ID = r.BOARD_ID
+WHERE year(b.CREATED_DATE) = 2022
+and month(b.CREATED_DATE) = 10
+ORDER BY r.CREATED_DATE ASC, b.TITLE ASC;
+
