@@ -1,0 +1,16 @@
+/* 
+[MEMBER_PROFILE] 식당 리뷰 사이트의 회원 정보 테이블
+
+MEMBER_ID 회원 ID
+MEMBER_NAME 회원 이름
+TLNO 회원 연락처
+GENDER 성별
+DATE_OF_BIRTH 생년월일
+ */
+
+select MEMBER_ID, MEMBER_NAME, GENDER, DATE_OF_BIRTH
+from MEMBER_PROFILE
+WHERE month(DATE_OF_BIRTH) = 03
+and GENDER = 'W'
+and TLNO is NOT NULL
+ORDER BY MEMBER_ID ASC;
