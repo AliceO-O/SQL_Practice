@@ -64,8 +64,7 @@ SQL_Practice/
 ```sql
 /*
 문제: 평균 일일 대여 요금 구하기
-Category: SELECT
-Level: 1
+[Table]: 정보
 
 핵심 개념
 - AVG()
