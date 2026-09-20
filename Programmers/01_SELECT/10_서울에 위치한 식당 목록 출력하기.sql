@@ -1,0 +1,32 @@
+/* 
+[REST_INFO] 식당의 정보 테이블
+
+REST_ID 식당 ID
+REST_NAME 식당 이름
+FOOD_TYPE 음식 종류
+VIEWS 조회수
+FAVORITES 즐겨찾기수
+PARKING_LOT 주차장 유무
+ADDRESS 주소
+TEL 전화번호
+ */
+
+
+/* 
+[REST_REVIEW] 식당의 리뷰 정보 테이블
+
+REVIEW_ID 리뷰 ID
+REST_ID 식당 ID
+MEMBER_ID 회원 ID
+REVIEW_SCORE 점수
+REVIEW_TEXT 리뷰 텍스트
+REVIEW_DATE 리뷰 작성일
+ */
+
+select i.REST_ID, i.REST_NAME, i.FOOD_TYPE, i.FAVORITES, i.ADDRESS, round(avg(r.REVIEW_SCORE), 2) as SCORE
+from REST_INFO as i
+JOIN REST_REVIEW as r
+on i.REST_ID = r.REST_ID
+where i.ADDRESS like "서울%"
+GROUP BY i.REST_ID, i.REST_NAME, i.FOOD_TYPE, i.FAVORITES, i.ADDRESS
+ORDER BY SCORE DESC, i.FAVORITES DESC;
